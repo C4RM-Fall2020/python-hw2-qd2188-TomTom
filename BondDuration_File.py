@@ -1,6 +1,6 @@
 import numpy as np
 
-def getBondDuration(y, face, couponrate, m, ppy = 1):
+def getBondDuration(y, face, couponRate, m, ppy = 1):
     totalperiods = m * ppy
 
     
@@ -8,7 +8,7 @@ def getBondDuration(y, face, couponrate, m, ppy = 1):
     time = t / ppy
 
     
-    coupon = face * couponrate / ppy
+    coupon = face * couponRate / ppy
     cf = np.ones(totalperiods) * coupon
     cf[-1] = cf[-1] + face 
 
