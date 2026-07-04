@@ -9,7 +9,7 @@ def getBondDuration(y, face, couponrate, m, ppy = 1):
 
     
     coupon = face * couponrate / ppy
-    cf = np.ones(tatalperiods) * coupon
+    cf = np.ones(totalperiods) * coupon
     cf[-1] = cf[-1] + face 
 
 
