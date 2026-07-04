@@ -1,8 +1,29 @@
 import numpy as np
 
-def getBondDuration(y, face, couponRate, m, ppy = 1):
-    if ppy == 1:
-        x = 8.51
-    if ppy == 2:
-        x = 8.42
-    return(x)
+def getBondDuration(y, face, couponrate, m, ppy = 1):
+    totalperiods = m * ppy
+
+    
+    t = np.arange(1, totalperiods + 1)
+    time = t / ppy
+
+    
+    coupon = face * couponrate / ppy
+    cf = np.ones(tatalperiods) * coupon
+    cf[-1] = cf[-1] + face 
+
+
+    pv = (1 + y / ppy) ** (-t)
+    pvcf = cf * pv
+
+
+    bondprice = np.sum(pvcf)
+
+
+    weightedtime = np.sum(time * pvcf)
+
+    bondduration = weightedtime / bondprice
+
+return(bondduration)
+    
+    
